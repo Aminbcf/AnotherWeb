@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WAD Exam</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+    <img src="images/logo.png" alt="Logo" class="logo">
+    <h1>UMBB - WAD Exam</h1>
+</header>
+
+<nav>
+    <a href="#exercise1">Exercise 1</a>
+    <a href="#exercise2">Exercise 2</a>
+</nav>
+
+<div class="container">
+<aside class="left-aside">
+    <marquee behavior="scroll" direction="up" scrollamount="2">
+        <p>Do not refresh the page. Do not switch tabs. All answers are final once submitted.</p>
+    </marquee>
+</aside>
+
+<aside class="right-aside">
+    <p id="timer">00:05:00</p>
+</aside>
+
+<main>
+    <section id="exercise1">
+        <h2><b>Exercise 1</b></h2>
+        <article>
+            <p>1. HTML stands for?</p>
+            <input type="checkbox" name="q1" value="correct"> Hyper Text Markup Language<br>
+            <input type="checkbox" name="q1" value="wrong"> High Text Machine Language<br>
+            <hr>
+        </article>
+    </section>
+
+    <section id="exercise2">
+        <h2><b>Exercise 2</b></h2>
+        <article>
+            <p>2. CSS is used for styling the page?</p>
+            <input type="radio" name="q2" value="true"> True<br>
+            <input type="radio" name="q2" value="false"> False<br>
+            <hr>
+        </article>
+    </section>
+    <div class="buttonsSection">
+        <button onclick="submitExam(1)">Submit</button>
+        <button onclick="exitExam()">Exit</button>
+    </div>
+
+</main>
+</div>
+
+<footer>
+    <p id="score"></p>
+</footer>
+
+<script src="js/exam.js"></script>
+</body>
+</html>

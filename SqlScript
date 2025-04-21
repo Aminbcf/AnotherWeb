@@ -1,0 +1,36 @@
+CREATE DATABASE exam_platform;
+
+USE exam_platform;
+
+-- 1. Account table
+CREATE TABLE account (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(100) UNIQUE NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  role ENUM('admin', 'candidate') NOT NULL
+);
+
+-- 2. Candidate table
+CREATE TABLE candidate (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100),
+  account_id INT,
+  FOREIGN KEY (account_id) REFERENCES account(id)
+);
+
+-- 3. Module table
+CREATE TABLE module (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(100)
+);
+
+-- 4. Candidate_Module table
+CREATE TABLE candidate_module (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  candidate_id INT,
+  module_id INT,
+  grade INT,
+  FOREIGN KEY (candidate_id) REFERENCES candidate(id),
+  FOREIGN KEY (module_id) REFERENCES module(id)
+);
