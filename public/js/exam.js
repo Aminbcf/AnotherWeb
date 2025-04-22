@@ -14,7 +14,17 @@ fetch(`http://localhost:3000/candidate/${candidateId}/module/${moduleId}/check`)
     });
 
 
-
+//bottons function to scroll DO NOT TOUCH IT!!
+document.querySelectorAll('.scroll-link').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
 
 
 let totalSeconds = 300;
