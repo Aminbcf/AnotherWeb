@@ -1,4 +1,4 @@
-const loginForm = document.getElementById('loginForm');
+const loginForm = document.getElementById('loginForm').Value;
 const errorMsg = document.getElementById('errorMsg');
 
 if (loginForm) {

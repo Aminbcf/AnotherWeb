@@ -26,8 +26,8 @@ document.querySelectorAll('.scroll-link').forEach(link => {
     });
   });
 
-
-let totalSeconds = 300;
+//function to display the timer
+let totalSeconds = 3000;
 const timerElement = document.getElementById('timer');
 const scoreElement = document.getElementById('score');
 const interval = setInterval(() => {
@@ -49,13 +49,16 @@ function submitExam(moduleId) {
     disableInputs();
     let score = 0;
 
-    const q1 = document.querySelector('input[name="q1"][value="correct"]');
-    const q2 = document.querySelector('input[name="q2"]:checked');
+    for (let i = 1; i <= 20; i++) {
+        const correctAnswer = document.querySelector(`input[name="q${i}"][value="correct"]`);
+        const selectedAnswer = document.querySelector(`input[name="q${i}"]:checked`);
+  
+        if (selectedAnswer && selectedAnswer === correctAnswer) {
+          score++;
+        }
+      }
 
-    if (q1 && q1.checked) score += 1;
-    if (q2 && q2.value === "true") score += 1;
-
-    scoreElement.textContent = `Your score: ${score}/2`;
+    scoreElement.textContent = `Your score: ${score}/20`;
 
     // Save score to database
     const candidateId = localStorage.getItem('candidateId');
