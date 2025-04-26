@@ -13,20 +13,22 @@ body {
 
 /* Header */
 header {
-    background: #165da5;
-    color: white;
+    background-image: url('../images/head6.png');
+    background-repeat: no-repeat; /* <-- Should be bacnkground-repeat */
+    background-size: cover;       /* <-- Optional: make the image fill */
     padding: 20px;
     display: flex;
     align-items: center;
     gap: 20px;
-
 }
+
 h1{
     margin-left: 100px;
     font-family: 'Playfair Display', serif; /* You can use custom fonts too */
     font-size: 2.5rem;
     font-weight: bold;
     letter-spacing: 1px;
+    z-index: 15px;
 }
 
 .logo {

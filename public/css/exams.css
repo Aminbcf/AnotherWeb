@@ -13,8 +13,9 @@ body {
 
 /* Header */
 header {
-    background: #165da5;
-    color: white;
+    background-image: url('../images/head6.png');
+    background-repeat: no-repeat; /* <-- Should be bacnkground-repeat */
+    background-size: cover;       /* <-- Optional: make the image fill */
     padding: 20px;
     display: flex;
     align-items: center;
@@ -153,14 +154,7 @@ body {
 }
 
 /* Header */
-header {
-    background: #165da5;
-    color: white;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
+
 
 h1 {
     margin-left: 250px;
