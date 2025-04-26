@@ -27,7 +27,7 @@ document.querySelectorAll('.scroll-link').forEach(link => {
   });
 
 //function to display the timer
-let totalSeconds = 3000;
+let totalSeconds = 300;
 const timerElement = document.getElementById('timer');
 const scoreElement = document.getElementById('score');
 const interval = setInterval(() => {
@@ -82,11 +82,16 @@ function submitExam(moduleId) {
 
 }
 
-function exitExam() {
-    const answeredQ1 = document.querySelector('input[name="q1"]:checked');
-    const answeredQ2 = document.querySelector('input[name="q2"]:checked');
-    const allAnswered = answeredQ1 && answeredQ2;
+ function exitExam() {
+    let allAnswered = true;
 
+    for (let i = 1; i <= 20; i++) {
+      const answered = document.querySelector(`input[name="q${i}"]:checked`);
+      if (!answered) {
+        allAnswered = false;
+        break; // no need to continue if one is missing
+      }
+    }
     const candidateId = localStorage.getItem('candidateId');
     const moduleId = 1; // adjust accordingly
 
@@ -103,11 +108,11 @@ function exitExam() {
                 } else {
                     console.warn('Failed to save score:', data.message);
                 }
-                window.location.href = "main.html";
+                window.location.href = "../main.html";
             })
             .catch(err => {
                 console.error('Error saving score on exit:', err);
-                window.location.href = "main.html";
+                window.location.href = "../main.html";
             });
     }
 
